@@ -1,13 +1,62 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(13,4,94);
+  background: linear-gradient(331deg, rgba(13,4,94,1) 3%, rgba(0,48,42,1) 56%, rgba(0,2,10,1) 94%);
+  color: #fff; /* White text color for better readability */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Source Code Pro', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+a {
+  color: #999; /* Light grey links */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #ccc; /* Lighter grey on hover */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #444; /* Dark grey container background */
+}
+
+.header {
+  background: linear-gradient(135deg, #444, #666); /* Header gradient background */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 3px solid #666; /* Bottom border for header */
+}
+
+.footer {
+  background: #444; /* Dark grey footer background */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-top: 3px solid #666; /* Top border for footer */
+}
+
+/* Add scrollbar design */
+::-webkit-scrollbar {
+  width: 8px; /* Make the scrollbar thin */
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00342d; /* Dark grey scrollbar thumb */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background:#00342d; /* Dark grey scrollbar track */
+  border-radius: 10px;
 }

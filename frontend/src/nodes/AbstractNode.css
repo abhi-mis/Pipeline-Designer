@@ -5,96 +5,155 @@
 }
 
 .node-container {
-  min-width: 250px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 15px;
-  background-color: #dae2f1;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  min-width: 80px;
+  border: 2px solid #ffffff; /* Light purple border */
+  border-radius: 12px; /* Slightly more rounded corners */
+  padding: 20px;
+  background: #2f4f7f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.node-container.selected {
+  background: #1e3554; /* Different background color when selected */
+  border: 2px solid #f0f0f0; /* Optional: Different border color when selected */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Optional: Stronger shadow when selected */
 }
 
 .node-container:hover {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02); /* Slightly scale up on hover */
 }
 
 .node-header {
-  font-size: 1.2em;
+  font-size: 1.4em; /* Slightly larger font size */
   font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
+  margin-bottom: 15px;
+  color: #ffffff; /* White text for better contrast */
+  /* Added styles */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   font-weight: 600;
-  color: #555;
+  color: #ffffff; /* Light purple label color */
+  /* Added styles */
+  font-size: 1.1em;
+  text-transform: capitalize;
 }
 
-.input-field {
+.input-field, .textarea-field, .select-field {
   display: block;
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  border-radius: 6px;
+  margin: 12px 0;
   font-size: 1em;
+  /* Added styles */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus, .textarea-field:focus, .select-field:focus {
+  border-color: #1b419a;
+  box-shadow: 0 0 5px rgba(106, 27, 154, 0.5);
 }
 
 .textarea-field {
-  width: 100%;
-  height: auto; /* Allow height to be dynamic */
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: none; /* Disable manual resizing */
-  font-size: 1em;
-  margin: 10px 0;
-  overflow: hidden; /* Hide scrollbars */
-}
-
-.select-field {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin: 10px 0;
-  font-size: 1em;
+  height: auto;
+  resize: none;
+  overflow: hidden;
 }
 
 .button {
-  margin-top: 25px;
+  margin-top: 30px;
   display: inline-block;
-  padding: 8px 16px;
-  background-color: #34568b;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  background-color: #2f4f7f; /* Deep purple button color */
+  color: #ffffff;
+  font-weight: 700;
+  border: 3px solid;
+  border-color: white;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* Added styles */
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .button:hover {
-  background-color: #2b4865;
+  transform: scale(1.05);
 }
 
 .button:active {
-  background-color: #34568b;
+  background-color: #000767;
 }
 
 .alert-container {
-  margin-top: 10px;
-  font-size: 1.1em;
-  color: #555;
-  font-style: italic;
-  font-weight: 500;
+  width: 30%;
+  margin: 0 auto;
+  font-size: 1.2em;
+  color: #ffffff;
+  font-style: bolder;
+  font-weight: 900;
   text-align: center;
+  padding: 2px;
+  border-radius: 6px;
+  border: 2px solid #ddd;
+  background-color: #2f4f7f; /* added a light gray background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* added a subtle box shadow */
   margin-bottom: 10px;
 }
 
-.alert-container p {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 5px;
+/* Additional styles for responsiveness */
+@media (max-width: 768px) {
+  .node-container {
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .node-container {
+    min-width: 150px;
+  }
+  .button {
+    padding: 5px 10px;
+  }
+}
+
+
+/* frontend/src/nodes/AbstractNode.css */
+
+/* Existing styling... */
+
+.delete-button {
+  background-color: #e74c3c; /* Red color for the delete button */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+.delete-button:focus {
+  outline: none; /* Remove focus outline */
 }

@@ -1,5 +1,3 @@
-// frontend/src/submit.js
-
 import React, { useState } from "react";
 import { useReactFlow } from "reactflow";
 
@@ -21,13 +19,12 @@ export const SubmitButton = () => {
     });
 
     const result = await response.json();
-    // alert(
-    //   `Number of nodes: ${result.num_nodes}, Number of edges: ${result.num_edges}, Is DAG: ${result.is_dag}`
-    // );
     setAlert(true);
     setRes(result);
     console.log(result);
     console.log(res);
+
+    window.alert("Pipeline result available! Scroll down to see the result.");
   };
 
   return (
@@ -37,10 +34,23 @@ export const SubmitButton = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          padding: "10px",
+          borderRadius: "10px",
+          
         }}
-        // className="button-container"
       >
-        <button type="button" onClick={handleSubmit} className="button">
+        <button
+          type="button"
+          onClick={handleSubmit}
+          className="button"
+          style={{
+        
+            color: "#fff",
+            padding: "10px 20px",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+        >
           Submit
         </button>
       </div>
@@ -51,12 +61,24 @@ export const SubmitButton = () => {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
+            padding: "10px",
+            borderRadius: "10px",
+            marginTop: "20px",
           }}
-          className='alert-container'
+          className="alert-container"
         >
-          <p>Number of nodes: {res.num_nodes}</p>
-          <p>Number of edges: {res.num_edges}</p>
-          <p>Is DAG ?: {res.is_dag ? "Yes" : "No"}</p>
+          <p
+            style={{
+              fontSize: "26px",
+              fontWeight: "bold",
+              marginBottom: "10px",
+            }}
+          >
+            - - -  RESULT  - - - 
+          </p>
+          <p>NUMBER OF NODES : {res.num_nodes}</p>
+          <p>NUMBER OF EDGES: {res.num_edges}</p>
+          <p>IS DAG ?: {res.is_dag ? "Yes" : "No"}</p>
         </div>
       )}
     </>

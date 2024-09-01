@@ -1,9 +1,3 @@
-// ui.js
-// Displays the drag-and-drop UI
-// --------------------------------------------------
-
-// frontend\src\ui.js
-
 import { useState, useRef, useCallback } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
 import { useStore } from "./store";
@@ -17,6 +11,7 @@ import { BooleanNode } from "./nodes/BooleanNode";
 import { DateNode } from "./nodes/DataNode";
 import { EmailNode } from "./nodes/EmailNode";
 import { URLNode } from "./nodes/URLNode";
+import DeleteButton from "./DeleteButton"; // Import your DeleteButton component
 
 import "reactflow/dist/style.css";
 
@@ -104,7 +99,18 @@ export const PipelineUI = () => {
 
   return (
     <>
-      <div ref={reactFlowWrapper} style={{ width: "100wv", height: "70vh" }}>
+      <div
+        ref={reactFlowWrapper}
+        style={{
+          position: 'relative',
+          height: '70vh',
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
+      >
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -120,9 +126,11 @@ export const PipelineUI = () => {
           connectionLineType="smoothstep"
         >
           <Background color="#aaa" gap={gridSize} />
+           {/* Add the DeleteButton to your UI */}
           <Controls />
           <MiniMap />
         </ReactFlow>
+        
       </div>
     </>
   );

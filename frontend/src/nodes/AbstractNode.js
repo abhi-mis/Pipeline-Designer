@@ -1,15 +1,14 @@
-// frontend\src\nodes\AbstractNode.js
-
 import { useState, useEffect, useRef } from "react";
 import { Handle, Position } from "reactflow";
 import "./AbstractNode.css"; // Import the CSS file
 
-export const AbstractNode = ({ id, data, type, handles, onChange }) => {
+export const AbstractNode = ({ id, data, type, handles, onChange, onDelete }) => {
   const [name, setName] = useState(data?.name || id);
   const [nodeType, setNodeType] = useState(data?.nodeType || type);
   const [inputText, setInputText] = useState(data?.text || "");
   const [dynamicHandles, setDynamicHandles] = useState(handles);
   const [textareaHeight, setTextareaHeight] = useState("80px");
+  const [isSelected, setIsSelected] = useState(false); // State for selection
 
   const textareaRef = useRef(null);
 
@@ -58,14 +57,23 @@ export const AbstractNode = ({ id, data, type, handles, onChange }) => {
     return variables;
   };
 
+  const handleSelect = () => {
+    setIsSelected(!isSelected);
+  };
+
+  // Handle node deletion with confirmation
+
   return (
     <div
-      className="node-container"
+      className={`node-container ${isSelected ? 'selected' : ''}`} // Add conditional class
       style={
         type === "Text" ? { height: `calc(${textareaHeight} + 200px)` } : {}
       }
+      onClick={handleSelect} // Toggle selection on click
     >
-      <div className="node-header">{type}</div>
+      <div className="node-header">
+        {type}
+      </div>
       <div className="input-container">
         <label className="label">
           Name:
